@@ -3,4 +3,4 @@ title: Séance1
 description: Contenu présenté en présentiel
 ---
 
-Contenu de la séance 1.
+Le support de présentation de cette séance peut être téléchargé [ici](https://learn-technique.helmo.be/mod/resource/view.php?id=265231).

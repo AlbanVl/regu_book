@@ -1,13 +1,17 @@
 # See docs at: https://mystmd.org/guide/frontmatter
 version: 1
 project:
-  id: 224a7f33-648e-44d4-9c40-5e0935215cd4
   # title:
   # description:
   keywords: []
-  authors: []
+  authors: [A. Van Laethem]
   # github:
   # bibliography: []
+
+  abbreviations:
+    SISO: Single Input Single Output
+    MISO: Muliple Input Single Output
+
 site:
   template: book-theme
   # title:
@@ -19,3 +23,6 @@ site:
     - title: Learn More
       url: https://mystmd.org/guide
   domains: []
+
+  # TODO: Remplacer les figures svg par des png en attendant que Inkscape veuille bien les convertir lui-même au format pdf pour la version pdf.
+  # TODO: Gérer les points médians au format pdf : https://gist.github.com/MBunel/37100e111fe19f288d32d65f643f3e79

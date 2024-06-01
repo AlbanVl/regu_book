@@ -1,12 +1,10 @@
 format: jb-book
 root: index
 parts:
-  - caption: Modélisation & identification
+  - caption: Modélisation, Identification & Analyse
     chapters:
       - file: seance1
       - file: seance2
-  - caption: Analyse
-    chapters:
       - file: seance3
   - caption: Dimensionnement
     chapters:
@@ -14,3 +12,9 @@ parts:
       - file: seance5
       - file: seance6
       - file: seance7
+  - caption: Reference
+    chapters:
+      - file: glossary
+      - file: solutions_exercices
+bibliography:
+  - references.bib
