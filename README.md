@@ -13,9 +13,11 @@
     1. Open a terminal in the main folder ;
     1. `myst build --tex nameOfTheFile.tex` ;
     1. Copy the `correct_latex.py` into the folder containing the Latex files : `cp correct_latex.py _build/exports/nameOfTheFile_tex/` ;
-    1. Go into the folder containing the Latex files : `cd _build/exports/nameOfTheFile_tex/` ;
+    1. Go into the folder containing the Latex files : `cd _build/exports/nameOfTheFile_pdf_tex/` ;
     1. Run the python file : `python3 correct_latex.py` ;
     1. Generate the pdf via Latex : `pdflatex nameOfTheFile.tex`.
+
+        **NOTE :** To generate the pdf without being stopped : `pdflatex -interaction=nonstopmode nameOfTheFile.tex`
 
 # TODO List
 
@@ -63,9 +65,11 @@
 
 - [ ] L'intégration d'une image dans un avertissement (admonition) ne fonctionne pas (Exemple : Seance5, même endroit que le précédent)
 
-- [ ] Problème de renvoi vers la figure 4 de la séance 3, section : Stabilité d’un système dans le domaine fréquentiel
+- [ ] Problème de renvoi vers la figure 4 de la séance 3, section : Stabilité d’un système dans le domaine fréquentiel 
+    
+    -> Provient du fait d'avoir une figure dans la note de bas de page, ce qui ne marche pas...
 
-- [ ] Mettre une image pour marquer la présence d'une vidéo avec le lien hypertexte permmettant d'y aller.
+- [x] Mettre une image pour marquer la présence d'une vidéo avec le lien hypertexte permmettant d'y aller.
 
 - [ ] Gérer le problème d'affichage des noms des Parts trop longs.
 

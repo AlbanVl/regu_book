@@ -12,6 +12,12 @@ Usage:
     3. The script will correct all .tex files in the directory
 """
 
+def correct_videos(text: str) -> str:
+
+    text = re.sub(r"\\begin{figure}\[!htbp\]\n\\centering\n\\caption", r"\\begin{figure}[!htbp]\n\\centering\n\\includegraphics[width=0.25\\linewidth]{Images/video_logo.png}\n\\caption", text, flags=re.DOTALL)
+    
+    return text
+
 def correct_subfigures(text: str) -> str:
     """
     Corrects the subfigures in the given text.
@@ -68,7 +74,7 @@ def correct_admonitions(text: str) -> str:
     Returns:
         str: The text with the corrected admonitions
     """
-    
+
     text = re.sub(r'\\begin\{framed\}\s*\\textbf\{Hint\}\\\\(.*?)\\end\{framed\}', r'\\begin{tipblock}\1\\end{tipblock}', text, flags=re.DOTALL)
     text = re.sub(r'\\begin\{framed\}\s*\\textbf\{Note\}\\\\(.*?)\\end\{framed\}', r'\\begin{noteblock}\1\\end{noteblock}', text, flags=re.DOTALL)
     text = re.sub(r'\\begin\{framed\}\s*\\textbf\{Attention\}\\\\(.*?)\\end\{framed\}', r'\\begin{warningblock}\1\\end{warningblock}', text, flags=re.DOTALL)
@@ -76,7 +82,8 @@ def correct_admonitions(text: str) -> str:
     text = re.sub(r'\\begin\{framed\}\s*\\textbf\{Important\}\\\\(.*?)\\end\{framed\}', r'\\begin{importantblock}\1\\end{importantblock}', text, flags=re.DOTALL)
     text = re.sub(r'\\begin\{framed\}\s*\\textbf\{Caution\}\\\\(.*?)\\end\{framed\}', r'\\begin{cautionblock}\1\\end{cautionblock}', text, flags=re.DOTALL)
     text = re.sub(r'\\begin\{framed\}\s*\\textbf\{Question\}\\\\(.*?)\\end\{framed\}', r'\\begin{awesomeblock}[teal]{2pt}{\\faQuestionCircle}{teal}\1\\end{awesomeblock}', text, flags=re.DOTALL)
-    text = re.sub(r'\\begin\{framed\}\s*\\textbf\{Exercice\}\\\\(.*?)\\end\{framed\}', r'\\begin{awesomeblock}[violet]{2pt}{\\faEdit}{violet}\1\\end{awesomeblock}', text, flags=re.DOTALL)
+    # text = re.sub(r'\\begin\{framed\}\s*\\textbf\{Exercice\}\\\\(.*?)\\end\{framed\}', r'\\begin{awesomeblock}[violet]{2pt}{\\faEdit}{violet}\1\\end{awesomeblock}', text, flags=re.DOTALL)
+    text = re.sub(r'\\begin\{framed\}\s*\\textbf\{Exercice\}\\\\(.*?)\\end\{framed\}', r'\\begin{exercise}\1\\end{exercise}', text, flags=re.DOTALL)
     return text
 
 def correct_tex_file(file_path):
@@ -87,6 +94,8 @@ def correct_tex_file(file_path):
     content = correct_admonitions(content)
     # Correct the subfigures in the given file
     content = correct_subfigures(content)
+    # Correct the videos in the given file
+    content = correct_videos(content)
 
     with open(file_path, 'w') as file:
         file.write(content)

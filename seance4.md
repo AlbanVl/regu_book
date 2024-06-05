@@ -1,5 +1,5 @@
 ---
-title: Séance4
+title: Séance 4
 description: Présentation du correcteurs PID.
 ---
 

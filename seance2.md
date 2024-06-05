@@ -1,5 +1,5 @@
 ---
-title: Séance2
+title: Séance 2
 description: Matière centrée sur la modélisation et la mesure des performances d'un système.
 ---
 
@@ -50,7 +50,7 @@ Néanmoins, un système peut être plus complexe que cela en étant composé de 
 :alt: Schéma fonctionnel d’un système de contrôle de position en cascade
 :align: center
 
-Schéma fonctionnel d’un système de contrôle de position. Le système dispose de trois boucles en cascade pour le contrôle du courant, de la vitesse et de la position. Chaque boucle a une valeur de référence fournie en externe (indiquée par l’indice 'r') qui définit la valeur nominale de l’entrée à la boucle, qui est ajoutée à la sortie de la boucle externe suivante pour déterminer la valeur commandée pour la boucle (appelée « point de consigne »). {cite:p}`åström2021feedback{fig 1.13}`
+Schéma fonctionnel d’un système de contrôle de position[^positionControl_cascadedSystem_fig]. {cite:p}`åström2021feedback{fig 1.13}`
 :::
 
 Celui-ci est composé de 3 systèmes bouclés (= asservis) :
@@ -74,6 +74,7 @@ Où on ne représente plus les sous-systèmes puisque ceux-ci ne modifient pas l
 Cette architecture montre comment la rétroaction peut être utilisée pour simplifier l’ensemble de la conception du contrôleur en divisant le problème en étapes. Cette architecture fournit également un niveau de modularité puisque chaque étape de conception ne dépend que du comportement en boucle fermée du système. Si nous remplaçons le moteur par un nouveau moteur, alors en redessinant le contrôleur de courant (*CC*) pour donner les mêmes performances en boucle fermée, nous pouvons laisser les boucles de niveau extérieur inchangées. De même, si nous devons reconcevoir l’un des contrôleurs de couche externe pour une application avec des spécifications différentes, nous pouvons souvent utiliser une conception de boucle interne existante (tant que la conception existante fournit des performances suffisantes pour satisfaire les exigences de la boucle externe).
 
 [^demo_horloge]: cf. démonstration faite faite avec l'"horloge" lors de la première séance de cours.
+[^positionControl_cascadedSystem_fig]: Le système dispose de trois boucles en cascade pour le contrôle du courant, de la vitesse et de la position. Chaque boucle a une valeur de référence fournie en externe (indiquée par l’indice 'r') qui définit la valeur nominale de l’entrée à la boucle, qui est ajoutée à la sortie de la boucle externe suivante pour déterminer la valeur commandée pour la boucle (appelée « point de consigne »).
 
 # Modélisation d'un retard
 
@@ -138,9 +139,6 @@ Pour une utilisation correcte du Jupyter Notebook, veuillez suivre ces étapes :
 5. Sélectionnez, si cela n'est pas fait automatiquement, le *kernel* (c'est-à-dire l'interpréteur) Python à utiliser.
 
 ::::{tip}Exercice
-:::{note}
-Afin de rendre l'exercice intéressant, veuillez le résoudre sur une feuille de papier avant de regarder les réponses.
-:::
 
 Pour chacune des valeurs de $\zeta$ suivantes :
 * $\zeta < 0$
@@ -155,6 +153,10 @@ veuillez donner le type de système associé :
 * Système sur-amorti
 * Système instable
 * Système critiquement amorti
+
+:::{note}
+Afin de rendre l'exercice intéressant, veuillez le résoudre sur une feuille de papier avant de regarder les réponses.
+:::
 
 :::{dropdown}Réponses
 1. $\zeta < 0$ $\Rightarrow$ Système instable
@@ -226,7 +228,7 @@ Un de ces outils est le plan de la position des pôles et zéros de la fonction 
 
 # Précision d'un système
 
-Pour terminer, voyons comment déterminer la précision de notre système. Afin de varier un peu les plaisirs, voici [une vidéo *in english*](https://youtu.be/PXxveGoNRUw) pour vous expliquer comment déterminer la précision d'un système en fonction de sa ***classe*** (*type* en anglais) 🍿
+Pour terminer, voyons comment déterminer la précision de notre système. Afin de varier un peu les plaisirs, voici [une vidéo *in english*](https://youtu.be/PXxveGoNRUw) pour vous expliquer comment déterminer la précision d'un système en fonction de sa ***classe*** (*type* en anglais). 🍿
 
 :::{attention}
 Il y a deux erreurs écrites dans cette vidéo mais l'auteur les signale et les corrige à l'oral. Celles-ci ont lieu aux instants 7:55 et 11:52.
@@ -234,7 +236,7 @@ Il y a deux erreurs écrites dans cette vidéo mais l'auteur les signale et les 
 
 :::{iframe} https://www.youtube.com/embed/PXxveGoNRUw
 :width: 100%
-Final Value Theorem and Steady State Error
+[Final Value Theorem and Steady State Error](https://youtu.be/PXxveGoNRUw)
 :::
 
 Afin de compléter les explications données dans la précédente vidéo et pour ceux qui auraient plus de mal avec la langue de Shakespeare, voici la démonstration permettant de trouver les formules nous donnant les valeurs des différents types d'erreur en fonction de la ***classe*** (*type* en anglais) d'un système.

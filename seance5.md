@@ -1,5 +1,5 @@
 ---
-title: Séance5
+title: Séance 5
 description: Impacts des perturbations sur un système réel.
 ---
 
@@ -43,7 +43,7 @@ Commençons par le plus simple en regardant juste l'impact de $r(t)$:
 C'est aussi simple que ça ! 
 
 :::{tip}Exercice
-Je vous invite donc trouver les fonctions de transfert induites par les 3 autres signaux d'entrée avant de passer au point suivant. 😉
+Je vous invite donc à trouver les fonctions de transfert induites par les 3 autres signaux d'entrée avant de passer au point suivant. 😉
 :::
 
 [^disturbances]: Généralement activent dans les basses fréquences comme $r(t)$.

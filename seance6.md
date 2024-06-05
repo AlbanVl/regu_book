@@ -1,5 +1,5 @@
 ---
-title: Séance6
+title: Séance 6
 description: Compléments sur le dimensionnement d'un correcteur et la représentation d'un système.
 ---
 
@@ -22,7 +22,7 @@ Pour rappel, lors de la deuxième séance théorique, nous avons déjà étudié
 :alt: Schéma fonctionnel d’un système de contrôle de position en cascade
 :align: center
 
-Schéma fonctionnel d’un système de contrôle de position. Le système dispose de trois boucles en cascade pour le contrôle du courant, de la vitesse et de la position. Chaque boucle a une valeur de référence fournie en externe (indiquée par l’indice 'r') qui définit la valeur nominale de l’entrée à la boucle, qui est ajoutée à la sortie de la boucle externe suivante pour déterminer la valeur commandée pour la boucle (appelée « point de consigne »). {cite:p}`åström2021feedback{fig 1.13}`
+Schéma fonctionnel d’un système de contrôle de position[^positionControl_cascadedSystem_fig]. {cite:p}`åström2021feedback{fig 1.13}`
 :::
 
 Les problèmes liés à la régulation en cascade sont principalement dus aux interactions entre les sous-systèmes et aux retards de transmission. En effet, chaque sous-système introduit un déphasage et une atténuation du signal de sortie par rapport au signal d'entrée, ce qui affecte la précision et la rapidité de la régulation. De plus, les retards de transmission entre les sous-systèmes entraînent des décalages temporels entre les actions correctives et les effets observés, ce qui peut provoquer des oscillations ou des divergences du système.
@@ -32,6 +32,7 @@ Pour éviter ces problèmes, il est important de choisir soigneusement les param
 Cependant, obtenir les performances requises pour chaque sous-système afin d'assurer le bon fonctionnement de l'ensemble du système peut être complexe. Il peut être nécessaire de recourir à des techniques de régulation avancées, telles que la régulation prédictive ou la régulation adaptative, pour améliorer les performances du système. Ces techniques ne seront néanmoins pas abordées dans ce cours.
 
 [^demo_horloge]: cf. démonstration faite faite avec l'"horloge" lors de la première séance de cours.
+[^positionControl_cascadedSystem_fig]: Le système dispose de trois boucles en cascade pour le contrôle du courant, de la vitesse et de la position. Chaque boucle a une valeur de référence fournie en externe (indiquée par l’indice 'r') qui définit la valeur nominale de l’entrée à la boucle, qui est ajoutée à la sortie de la boucle externe suivante pour déterminer la valeur commandée pour la boucle (appelée « point de consigne »).
 
 # Saut de consigne à partir d'une consigne quelconque
 

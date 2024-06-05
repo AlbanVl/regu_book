@@ -1,5 +1,5 @@
 ---
-title: Séance3
+title: Séance 3
 description: Matière centrée sur la représentation fréquentiel de la réponse d'un système.
 ---
 
@@ -58,7 +58,7 @@ Cette vidéo vous a également montré comment déterminer la stabilité du syst
 
 3. Déterminer le nombre de pôles instables $P$ par rapport au nombre de zéros dans la partie droite du plan complexe.
 
-4. Vérifier l'équation : $N=P$, qui indique que le ***système asservi *à retour unitaire* est stable** si cette équation est vérifiée, et instable sinon.
+4. Vérifier l'équation : $N=P$, qui indique que le **système asservi *à retour unitaire* est stable** si cette équation est vérifiée, et instable sinon.
 
 Rendez-vous au point suivant pour comprendre l'origine de cette équation, appelée ***critère de Nyquist***.
 

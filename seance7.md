@@ -1,5 +1,5 @@
 ---
-title: Séance7
+title: Séance 7
 description: Exercices de dimensionnement d'un correcteur.
 ---
 
@@ -20,7 +20,7 @@ On demande de déterminer le correcteur dont le but est de permettre une erreur 
 :::
 
 :::{note}
-L'ensemble des solutions vous sont fournies dans le [](./solutions_exercices.md). Plus spécifiquement pour cet exercice, vous y trouverez la stratégie de résolution, ainsi que sa solution pour que vous puissiez vérifier votre raisonnement et votre réponse mais **évitez de les lire avant d’avoir résolu l’exercice** sous peine de passer à côté de l’objectif de vous entraîner à résoudre seul·e ce genre d’exercice. Nous avons vu tout ce qu'il faut pour que vous y arriviez donc fouillez dans vos notes et séances précédentes si besoin. 😉
+L'ensemble des solutions vous sont fournies dans le [](#Solutions). Plus spécifiquement pour cet exercice, vous y trouverez la stratégie de résolution, ainsi que sa solution pour que vous puissiez vérifier votre raisonnement et votre réponse mais **évitez de les lire avant d’avoir résolu l’exercice** sous peine de passer à côté de l’objectif de vous entraîner à résoudre seul·e ce genre d’exercice. Nous avons vu tout ce qu'il faut pour que vous y arriviez donc fouillez dans vos notes et séances précédentes si besoin. 😉
 :::
 
 # Exercice type examen
@@ -29,7 +29,7 @@ Voici à nouveau un exercice de dimensionnement (sous forme d'un notebook à pla
 
 Essayez de le résoudre en vous aidant de vos notes et/ou formulaire.
 
-Vous trouverez évidemment les solutions dans le [](./solutions_exercices.md) mais évitez de vous y rendre avant d'avoir résolu (ou du moins essayé de résoudre) l'exercice par vous-même. C'est la dernière occasion de vérifier votre maîtrise de dimensionnement seul·e face à un exercice "inédit". 😉
+Vous trouverez évidemment les solutions dans le [](#Solutions) mais évitez de vous y rendre avant d'avoir résolu (ou du moins essayé de résoudre) l'exercice par vous-même. C'est la dernière occasion de vérifier votre maîtrise de dimensionnement seul·e face à un exercice "inédit". 😉
 
 # Fin de la séance
 

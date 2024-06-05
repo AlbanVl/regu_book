@@ -2,6 +2,8 @@
 title: Solutionnaire
 description: Solutionnaire d'exercices.
 ---
+(Solutions)=
+# Solutionnaire
 
 # Séance théorique n°7
 

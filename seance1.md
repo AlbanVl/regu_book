@@ -1,5 +1,5 @@
 ---
-title: Séance1
+title: Séance 1
 description: Contenu présenté en présentiel
 ---
 
