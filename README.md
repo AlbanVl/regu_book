@@ -77,7 +77,7 @@
 
 - [ ] Modifier le style des listes avec des points plutôt que des tirets comme dans le pdf généré de base (ex: Séance 2.3)
 
-- [ ] Utiliser le style de listes numérotées avec des lignes entre les points comme dans le pdf généré de base (ex: Séance 2.2)
+- [x] Utiliser le style de listes numérotées avec des lignes entre les points comme dans le pdf généré de base (ex: Séance 2.2)
 
 - [ ] Utiliser la police de texte plus fine comme dans le pdf généré de base
 

@@ -481,7 +481,7 @@
 
 \usepackage{enumitem} % Required for list customization
 
-\setlist{nolistsep, noitemsep} % Customize spacing inside and outside lists
+% \setlist{nolistsep, noitemsep} % Customize spacing inside and outside lists
 
 \renewcommand{\labelenumi}{\arabic{enumi}.} % Customize the first level numbered list characters
 \renewcommand{\labelenumii}{\alph{enumii}.} % Customize the second level numbered list characters
