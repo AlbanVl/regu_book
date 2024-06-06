@@ -734,3 +734,54 @@
 %----------------------------------------------------------------------------------------
 
 \usepackage{tikz} % Required for drawing custom shapes and positioning elements absolutely on the page
+
+%----------------------------------------------------------------------------------------
+%	 QUOTES (Added by Alban)
+%----------------------------------------------------------------------------------------
+
+\let\oldquote\quote
+\let\endoldquote\endquote
+
+\renewenvironment{quote}{%
+    \oldquote
+    \itshape
+    \setlength{\rightmargin}{\leftmargin}
+    {\Large\textbf{``}}
+}
+{%
+    {\Large\textbf{''}}
+    % \item[]\mbox{}\hfill\cite{#1}\citeauthor{#1}	% To cite the author of the quote
+    \endoldquote
+}
+
+% % quote box
+% \newmdenv[
+% 	skipabove=7pt, % Whitespace above box
+% 	skipbelow=7pt, % Whitespace below box
+% 	rightline=false, % Right line visible
+% 	leftline=true, % Left line visible
+% 	topline=false, % Top line visible
+% 	bottomline=false, % Bottom line visible
+% 	linecolor=lightgray, % Border color
+% 	linewidth=4pt, % Border width
+% 	innerleftmargin=5pt, % Inside left margin width
+% 	innerrightmargin=5pt, % Inside right margin width
+% 	innertopmargin=5pt, % Inside top margin height
+% 	innerbottommargin=5pt, % Inside bottom margin height
+% 	leftmargin=0cm, % Outside left margin width
+% 	rightmargin=0cm % Outside right margin width
+% ]{qBox}
+
+% \let\oldquote\quote
+% \let\endoldquote\endquote
+
+% \renewenvironment{quote}{%
+%     \oldquote
+%     \itshape
+%     % \setlength{\rightmargin}{\leftmargin}
+%     \begin{qBox}
+% }
+% {%
+% 	\end{qBox}
+% 	\endoldquote
+% }

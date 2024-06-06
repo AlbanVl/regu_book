@@ -73,4 +73,4 @@
 
 - [ ] Gérer le problème d'affichage des noms des Parts trop longs.
 
-- [ ] Modifier le look des citations pour ressembler à ce qu'on obtient sur le site (cf. Séance 3 section 4).
+- [x] Modifier le look des citations pour ressembler à ce qu'on obtient sur le site (cf. Séance 3 section 4).
