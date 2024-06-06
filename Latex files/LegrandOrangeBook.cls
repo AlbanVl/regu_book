@@ -46,6 +46,8 @@
 
 \usepackage{etoolbox} % Required for conditional logic and easily changing commands
 
+\usepackage[english, french]{babel} % Required for automatically changing names of document elements to French besides English
+
 %----------------------------------------------------------------------------------------
 %	MARGINS
 %----------------------------------------------------------------------------------------
