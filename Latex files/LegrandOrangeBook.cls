@@ -1,11 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The Legrand Orange Book
 % LaTeX Class
-% Version 3.1 (February 18, 2022)
+% Version 3.2 (June 06, 2024)
 %
 % Authors:
 % Vel (vel@latextemplates.com)
 % Mathias Legrand (legrand.mathias@gmail.com)
+% Alban Van Laethem (a.vanlaethem@helmo.be)
 % 
 % This class originates from:
 % https://www.LaTeXTemplates.com
@@ -20,7 +21,7 @@
 %----------------------------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{LegrandOrangeBook}[2022/01/26 The Legrand Orange Book Class v3.0]
+\ProvidesClass{LegrandOrangeBook}[2024/06/06 The Legrand Orange Book Class v3.2]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}} % Pass through any options to the base class
 \ProcessOptions\relax % Process given options
