@@ -479,19 +479,19 @@
 %	 LISTS
 %----------------------------------------------------------------------------------------
 
-\usepackage{enumitem} % Required for list customization
+% \usepackage{enumitem} % Required for list customization
 
-% \setlist{nolistsep, noitemsep} % Customize spacing inside and outside lists
+% % \setlist{nolistsep, noitemsep} % Customize spacing inside and outside lists
 
-\renewcommand{\labelenumi}{\arabic{enumi}.} % Customize the first level numbered list characters
-\renewcommand{\labelenumii}{\alph{enumii}.} % Customize the second level numbered list characters
-\renewcommand{\labelenumiii}{\roman{enumiii}.} % Customize the third level numbered list characters
+% \renewcommand{\labelenumi}{\arabic{enumi}.} % Customize the first level numbered list characters
+% \renewcommand{\labelenumii}{\alph{enumii}.} % Customize the second level numbered list characters
+% \renewcommand{\labelenumiii}{\roman{enumiii}.} % Customize the third level numbered list characters
 
-%------------------------------------------------
+% %------------------------------------------------
 
-\renewcommand{\labelitemi}{\raisebox{-2pt}{\Large \textbullet}} % Customize the first level bullet point character
-\renewcommand{\labelitemii}{--} % Customize the second level bullet point character
-\renewcommand{\labelitemiii}{$\circ$} % Customize the third level bullet point character
+% \renewcommand{\labelitemi}{\raisebox{-2pt}{\Large \textbullet}} % Customize the first level bullet point character
+% \renewcommand{\labelitemii}{--} % Customize the second level bullet point character
+% \renewcommand{\labelitemiii}{$\circ$} % Customize the third level bullet point character
 
 %----------------------------------------------------------------------------------------
 %	LINKS

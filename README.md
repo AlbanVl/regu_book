@@ -79,6 +79,6 @@
 
 - [x] Utiliser le style de listes numérotées avec des lignes entre les points comme dans le pdf généré de base (ex: Séance 2.2)
 
-- [ ] Utiliser la police de texte plus fine comme dans le pdf généré de base
+- [x] Utiliser la police de texte plus fine comme dans le pdf généré de base
 
 - [ ] Corriger les références en se basant sur le pdf généré de base (ex: Séance2->Fig2)
