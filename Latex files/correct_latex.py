@@ -12,8 +12,11 @@ Usage:
     3. The script will correct all .tex files in the directory
 """
 
-def correct_videos(text: str) -> str:
+def correct_biblio(text: str) -> str:
+    text = re.sub(r"\\citep", r"\\parencite", text)
+    return text
 
+def correct_videos(text: str) -> str:
     text = re.sub(r"\\begin{figure}\[!htbp\]\n\\centering\n\\caption", r"\\begin{figure}[!htbp]\n\\centering\n\\includegraphics[width=0.25\\linewidth]{Images/video_logo.png}\n\\caption", text, flags=re.DOTALL)
     
     return text
@@ -96,6 +99,8 @@ def correct_tex_file(file_path):
     content = correct_subfigures(content)
     # Correct the videos in the given file
     content = correct_videos(content)
+    # Correct the bibliography in the given file
+    content = correct_biblio(content)
 
     with open(file_path, 'w') as file:
         file.write(content)
@@ -105,6 +110,16 @@ def correct_all_tex_files():
         if fnmatch.fnmatch(file, '*.tex'):
             correct_tex_file(file)
 
+def correct_bib_file():
+    with open('main.bib', 'r') as file:
+        content = file.read()
+
+    content = re.sub(r'\n\thowpublished =(.*?),', r'', content, flags=re.DOTALL)
+
+    with open('main.bib', 'w') as file:
+        file.write(content)
+
 # Call the function with the path to your .tex file
 if __name__ == '__main__':
     correct_all_tex_files()
+    correct_bib_file()

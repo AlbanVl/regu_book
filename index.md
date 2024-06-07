@@ -6,6 +6,8 @@ exports:
   - format: tex+pdf
     template: plain_latex_book # TODO: Remplacer le thème par un à moi qui arrive à gérer le symbol "°"
     toc: _toc.yml
+    title: Régulation
+    date: 25 June 2024
 ---
 
 Le présent document a pour objectif de présenter l'ensemble de ce qui a été vu lors des séances théoriques du cours de Régulation donné à HELMo Gramme.

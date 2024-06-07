@@ -71,14 +71,14 @@
 %	FONTS
 %----------------------------------------------------------------------------------------
 
-\usepackage[utf8]{inputenc} % Required for inputting international characters
-\usepackage[T1]{fontenc} % Output font encoding for international characters
+% \usepackage[utf8]{inputenc} % Required for inputting international characters
+% \usepackage[T1]{fontenc} % Output font encoding for international characters
 
 \usepackage{avant} % Use the Avantgarde font for headings
 
-\usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
+% \usepackage{mathptmx} % Use the Adobe Times Roman as the default text font together with math symbols from the Sym­bol, Chancery and Com­puter Modern fonts
 
-\usepackage{microtype} % Improve typography
+% \usepackage{microtype} % Improve typography
 
 %----------------------------------------------------------------------------------------
 %	HEADERS AND FOOTERS
@@ -436,17 +436,26 @@
 %----------------------------------------------------------------------------------------
 
 \usepackage[
-	backend=biber, % Use the biber engine for compiling the bibliography
-	bibstyle=numeric, % Main bibliography style
-	citestyle=numeric, % In-text citation style
-	sorting=nyt, % Sort references in the bibliography by name, then year, then title
-	sortcites=true, % If multiple citekeys are passed to a citation command, sort them in the citation
-	abbreviate=false, % Suppress abbreviations such as "Ed." for Editor
+	backend=biber,bibencoding=utf8, % Use the biber engine for compiling the bibliography instead of bibtex
+	%backend=bibtex8,bibencoding=ascii,%
+	language=auto,
+	style=authoryear-comp, % Main bibliography style
+	citestyle=authoryear, % In-text citation style (Author 1999, 2010)
+	%bibstyle=authoryear,dashed=false, % dashed: substitute rep. author with ---
+	sorting=nyt, % name, year, title
+	%sortcites=true, % If multiple citekeys are passed to a citation command, sort them in the citation
+	maxbibnames=10, % default: 3, et al.
+	maxcitenames=1,
+	%abbreviate=false, % Suppress abbreviations such as "Ed." for Editor
+	uniquelist=false,
+	url=true,
+	doi=false,
+	isbn=false,
+	hyperref=true,
 	backref=true, % List the page where references were cited in the bibliography
-	defernumbers=true,
+	clearlang=true,
+	natbib=true % natbib compatibility mode (\citep and \citet still work)
 ]{biblatex}
-
-\defbibheading{bibempty}{} % Suppress default bibliography headings
 
 %----------------------------------------------------------------------------------------
 %	INDEX

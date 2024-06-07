@@ -63,7 +63,7 @@
     \end{figure}
     ```
 
-- [ ] L'intégration d'une image dans un avertissement (admonition) ne fonctionne pas (Exemple : Seance5, même endroit que le précédent)
+- [ ] L'intégration d'une image dans un avertissement (admonition) ne fonctionne pas (Exemple : Seance5.2.1)
 
 - [ ] Problème de renvoi vers la figure 4 de la séance 3, section : Stabilité d’un système dans le domaine fréquentiel 
     
@@ -73,6 +73,8 @@
 
 - [ ] Gérer le problème d'affichage des noms des Parts trop longs.
 
+    -> Regarder au niveau du package `avant` dans la partie `FONTS` du fichier Legrand...cls
+
 - [x] Modifier le look des citations pour ressembler à ce qu'on obtient sur le site (cf. Séance 3 section 4).
 
 - [ ] Modifier le style des listes avec des points plutôt que des tirets comme dans le pdf généré de base (ex: Séance 2.3)
@@ -81,4 +83,6 @@
 
 - [x] Utiliser la police de texte plus fine comme dans le pdf généré de base
 
-- [ ] Corriger les références en se basant sur le pdf généré de base (ex: Séance2->Fig2)
+- [x] Corriger les références en se basant sur le pdf généré de base (ex: Séance2->Fig2)
+
+- [ ] Insérer le glossaire, acronymes et structure des includes générés dans le fichier `index.tex` pour le mettre dans le `main.tex`
