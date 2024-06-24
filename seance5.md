@@ -60,7 +60,7 @@ Voici les 4 fonctions de transferts qu'on obtient en observant chaque entrée un
 - La fonction de transfert reliant $N(s)$ et $Y(s)$ vaut : $H_n(s) = -\frac{C(s)P(s)}{1+C(s)P(s)}$
 
 ::::{note}
-On a bien un signe "-" qui apparaît aux numérateurs des fonctions de transfert des pertubations et du bruit vu que ces derniers rentrent dans l'entrée négative du différentiateur. De plus, la boucle de retour entrant dans l'entrée positive du différentiateur, il faut également inverser le signal de retour pour pouvoir utiliser la formule de Black. Voici sur la [](#GeneralSimpleFeedback_d_inOnly) la résolution pour le signal  $D_{in}(s)$ :
+On a bien un signe "-" qui apparaît aux numérateurs des fonctions de transfert des pertubations et du bruit vu que ces derniers rentrent dans l'entrée négative du différentiateur. De plus, la boucle de retour entrant dans l'entrée positive du différentiateur, il faut également inverser le signal de retour pour pouvoir utiliser la formule de Black. Voici ci-dessous la résolution pour le signal  $D_{in}(s)$ :
 
 :::{figure}
 :label: GeneralSimpleFeedback_d_inOnly

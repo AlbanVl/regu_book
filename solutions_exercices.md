@@ -19,11 +19,13 @@ On demande de déterminer le correcteur dont le but est de permettre une erreur 
 
 ### Stratégie de dimensionnement du correcteur adéquat
 
-Puisqu'on cherche à avoir une erreur statique nulle, la théorie nous dit que le système doit être au moins de classe 1 (cf. tableau des erreurs présentée lors de la 2ème séance théorique). Or, il n'y a pas de pôle à l'origine ( = nous ne pouvons pas mettre de pôle en évidence) donc nous sommes avec un système de classe 0. Il faut dès lors augmenter la classe de notre système, ce qui peut se faire en intégrant ce dernier.
+Puisqu'on cherche à avoir une erreur statique nulle, la théorie nous dit que le système doit être au moins de classe 1 (cf. [](#TableauErreurs)). Or, il n'y a pas de pôle à l'origine[^pole_dom] donc nous sommes avec un système de classe 0. Il faut dès lors augmenter la classe de notre système, ce qui peut se faire en intégrant ce dernier.
 
 L'erreur de vitesse devant être minimale, il faudra fixer un $K_{BO}$ le plus grand possible vu qu'on obtient un système de classe 1 après l'avoir intégré et que l'erreur de vitesse est égale à $\frac{1}{K_{BO}}$ dans ce cas.
 
 Enfin, on doit limiter le dépassement à 5%, ce qui limitera notre $K$. Le problème est qu'on se retrouve avec un système d'ordre 3 à condition d'utiliser la technique de compensation du pôle dominant pour dimensionner $\tau_I$. Les pôles n'étant pas si différents ($\frac{\tau_1}{\tau_2}<3 \ ou \ 4$), nous ne pouvons pas nous permettre de simplifier le système à un système du second ordre et nous devons donc ajouter un correcteur $D$ par compensation du pôle dominant afin de réduire l'ordre de notre système et ainsi retrouver un système d'ordre 2 dont on connaît la forme canonique et pour lequel nous pouvons donc exploiter la technique de l'identification pour fixer $K$.
+
+[^pole_dom]: Autrement dit, nous ne pouvons pas mettre de pôle en évidence.
 
 ### Dimensionnement du correcteur
 
@@ -31,7 +33,7 @@ En mettant la fonction de transfert sous forme canonique, on obtient :
 
 $$H(s)=\frac{\frac{1}{3}}{(\frac{1}{5}s+1)(\frac{2}{3}s+1)(\frac{3}{4}s+1)}$$
 
-Le pôle dominant étant celui lié à la constante de temps $\tau$ la plus grande, nous avons $\tau_1=\frac{3}{4}$ et le second pôle dominant vaut $\tau_2=\frac{2}{3}$
+Le pôle dominant étant celui lié à la constante de temps $\tau$ la plus grande, nous avons $\tau_1=\frac{3}{4}$ et le second pôle dominant vaut $\tau_2=\frac{2}{3}$.
 
 Dès lors, en appliquant la technique de compensation des pôles dominants, nous pouvons déterminer $\tau_i$ et $\tau_d$ (de la forme série) comme suit :
 
@@ -94,7 +96,7 @@ La forme parallèle du correcteur PID est la suivante (cf. séance 4) :
 $$K_P+\frac{K_I}{s}+K_D \cdot s = 11.156 + \frac{7.875}{s} + 3.937 \cdot s$$
 :::
 
-[^step_fct]: Pour pouvoir directement afficher les caractéristiques de performance sur le graphique, vous pouvez ajouter l'option plot_infos=True lorsque vous utilisez la fonction `step()` du package `ReguLabFct` 
+[^step_fct]: Pour pouvoir directement afficher les caractéristiques de performance sur le graphique, vous pouvez ajouter l'option `plot_infos=True` lorsque vous utilisez la fonction `step()` du package `ReguLabFct` 
 $\Rightarrow$ `rlf.step(system_to_plot, plot_infos=True)`
 [^plot_speed_error_fct]: Pour obtenir ce graphe vous pouvez maintenant directement utiliser la fonction `plot_speed_error()` du package `ReguLabFct` 
 $\Rightarrow$ `rlf.plot_speed_error(system_to_plot)`
