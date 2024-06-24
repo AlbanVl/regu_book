@@ -3,8 +3,11 @@ import fnmatch
 import re
 
 """
-This script corrects the admonitions in a given .tex file.
-It corrects the admonitions by replacing the framed environment with the appropriated block from the awesomebox package.
+This script corrects several errors/integrations in a given .tex file.
+    - It corrects the admonitions by replacing the framed environment with the appropriated block from the awesomebox package.
+    - It corrects the subfigures by replacing the figure environment with the subfigure environment.
+    - It corrects the videos by adding the video logo to the figure environment.
+    - It corrects the bibliography by replacing the \citep command with the \parencite command.
 
 Usage:
     1. Place this script in the same directory as your .tex files
@@ -12,12 +15,74 @@ Usage:
     3. The script will correct all .tex files in the directory
 """
 
+def extract_data():
+    # Extract the data from the index.tex file
+    with open('index.tex', 'r') as file:
+        content = file.read()
+
+    # Acronyms
+    acronyms = re.findall(r'%{5,}\s*acronyms\s*(.*?)%{5,}\s*', content, re.DOTALL)[0]
+    print(acronyms)
+
+    # return glossary, acronyms, includes
+
+def make_glossary():
+    # Copy the data at the right places in the main.tex file
+    
+    glossary, acronyms, includes = extract_data()
+
+    with open('index.tex', 'r') as file:
+        content = file.read()
+
+    with open('main.tex', 'w') as file:
+        file.write(content)
+
+def correct_admonitions_images(text: str) -> str:
+
+    # Define the patterns for the admonitions
+    admonition_patterns = [r"(\\begin\{noteblock\}.*?\\end\{noteblock\})",
+                           r"(\\begin\{tipblock\}.*?\\end\{tipblock\})",
+                           r"(\\begin\{warningblock\}.*?\\end\{warningblock\})",
+                           r"(\\begin\{importantblock\}.*?\\end\{importantblock\})",
+                           r"(\\begin\{cautionblock\}.*?\\end\{cautionblock\})",
+                           r"(\\begin\{awesomeblock\}.*?\\end\{awesomeblock\})",
+                           r"(\\begin\{exercise\}.*?\\end\{exercise\})"]
+    
+    for admonition_pattern in admonition_patterns:
+        admonitions = re.findall(admonition_pattern, text, re.DOTALL)
+        modified_admonitions = []
+        for admonition in admonitions:
+            # Suppress the beginning of the figure environment
+            admonition = re.sub(r"\\begin{figure}\[!htbp\]\s*\\centering\s*",
+                                r"", admonition, flags=re.DOTALL)
+            # Suppress the end of the figure environment
+            admonition = re.sub(r"\\caption\[\].*?\\end{figure}",
+                                r"", admonition, flags=re.DOTALL)
+            # Correct the size of the image
+            admonition = re.sub(r"\\includegraphics\[.*?\]{(.*?)}",
+                                r"\\bigskip\\includegraphics[width=0.5\\linewidth, center]{\1}", admonition, flags=re.DOTALL)
+            # Append the modified main figure environment to the list of modified main figures
+            modified_admonitions.append(admonition)
+
+        # Replace the admonitions in the text
+        for admonition, modified_admonition in zip(admonitions, modified_admonitions):
+            text = text.replace(admonition, modified_admonition)
+
+    return text
+
+def correct_footnotes_images(text: str) -> str:
+    text = re.sub(r"\\footnote\{(.*?)\n\n\\begin\{figure\}\[!htbp\]\s*\\centering\s*\\includegraphics\[width=(.*?)\\linewidth\]\{(.*?)\}\s*\\caption\*\{(.*?)\}\s*\\end\{figure\}\}",
+                  r"\\footnote{\1\n\\includegraphics[width=0.5\\linewidth, center]{\3}}", text)
+    return text
+
 def correct_biblio(text: str) -> str:
     text = re.sub(r"\\citep", r"\\parencite", text)
     return text
 
 def correct_videos(text: str) -> str:
-    text = re.sub(r"\\begin{figure}\[!htbp\]\n\\centering\n\\caption", r"\\begin{figure}[!htbp]\n\\centering\n\\includegraphics[width=0.25\\linewidth]{Images/video_logo.png}\n\\caption", text, flags=re.DOTALL)
+    text = re.sub(r"\\begin{figure}\[!htbp\]\n\\centering\n\\caption", 
+                  r"\\begin{figure}[!htbp]\n\\centering\n\\includegraphics[width=0.25\\linewidth]{Images/video_logo.png}\n\\caption", 
+                  text, flags=re.DOTALL)
     
     return text
 
@@ -95,6 +160,10 @@ def correct_tex_file(file_path):
 
     # Correct the admonitions in the given file
     content = correct_admonitions(content)
+    # Correct the admonitions images in the given file
+    content = correct_admonitions_images(content)
+    # Correct the footnotes images in the given file
+    content = correct_footnotes_images(content)
     # Correct the subfigures in the given file
     content = correct_subfigures(content)
     # Correct the videos in the given file
@@ -123,3 +192,5 @@ def correct_bib_file():
 if __name__ == '__main__':
     correct_all_tex_files()
     correct_bib_file()
+    make_glossary()
+    extract_data()

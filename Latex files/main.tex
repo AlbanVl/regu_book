@@ -58,10 +58,27 @@
 \chapterspacebelow{6.75cm} % Default amount of vertical whitespace from the top margin to the start of the text on chapter pages
 
 % Ajouts Alban
-\usepackage{awesomebox} % Ajout Alban : package pour les afficher de beaux avertissements (admonitions)
+\usepackage{awesomebox} % Pour afficher de beaux avertissements (admonitions)
 \usepackage{caption} % Pour les sous-figures
 \usepackage{subcaption} % Pour les sous-figures
+\usepackage[export]{adjustbox} % Pour ajuster la position des images non comprises dans une figure
 \usepackage[nottoc]{tocbibind} % Pour ajouter la bibliographie dans la table des matières
+\usepackage[toc, acronym]{glossaries} % Pour le glossaire + liste des acronymes (affichés dans la table des matières)
+% \usepackage[acronym]{glossaries} % Pour le glossaire + liste des acronymes (affichés dans la table des matières)
+\makeglossaries
+
+%----------------------------------------------------------------------------------------
+%	GLOSSARY
+%----------------------------------------------------------------------------------------
+
+\newglossaryentry{term-consigne}{name=Consigne,description={Terme utilisé en asservissement et en régulation, ordre donné à un appareil ou à une machine qui se traduit par une valeur à atteindre (ex. : je règle mon four à 200 °C ; dans mon habitation, je « programme » sur le thermostat du système de chauffage la température à une valeur de 17 °C la nuit et 19 °C le jour).}}
+
+%----------------------------------------------------------------------------------------
+%	ACRONYMS
+%----------------------------------------------------------------------------------------
+
+\newacronym{siso}{SISO}{Single Input Single Output}
+\newacronym{miso}{MISO}{Muliple Input Single Output}
 
 %----------------------------------------------------------------------------------------
 
@@ -108,9 +125,9 @@
 
 \tableofcontents % Output the table of contents
 
-\listoffigures % Output the list of figures, comment or remove this command if not required
+% \listoffigures % Output the list of figures, comment or remove this command if not required
 
-\listoftables % Output the list of tables, comment or remove this command if not required
+% \listoftables % Output the list of tables, comment or remove this command if not required
 
 \pagestyle{fancy} % Enable default headers and footers again
 
@@ -185,46 +202,54 @@
 
 \printbibliography[heading=bibempty, type=book] % Output book bibliography entries
 
+% %----------------------------------------------------------------------------------------
+% %	INDEX
+% %----------------------------------------------------------------------------------------
+
+% \cleardoublepage % Make sure the index starts on an odd (right side) page
+% \phantomsection
+% \addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}} % Add an Index heading to the table of contents
+% \printindex % Output the index
+
 %----------------------------------------------------------------------------------------
-%	INDEX
+%	ACRONYMS & GLOSSARY
 %----------------------------------------------------------------------------------------
 
-\cleardoublepage % Make sure the index starts on an odd (right side) page
-\phantomsection
-\addcontentsline{toc}{chapter}{\textcolor{ocre}{Index}} % Add an Index heading to the table of contents
-\printindex % Output the index
+\cleardoublepage % Make sure the glossary starts on an odd (right side) page
+\setglossarystyle{altlist}
+\printglossaries % Output the glossary
 
 %----------------------------------------------------------------------------------------
 %	APPENDICES
 %----------------------------------------------------------------------------------------
 
-\chapterimage{orange2.jpg} % Chapter heading image
-\chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
-\chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
+% \chapterimage{orange2.jpg} % Chapter heading image
+% \chapterspaceabove{6.75cm} % Whitespace from the top of the page to the chapter title on chapter pages
+% \chapterspacebelow{7.25cm} % Amount of vertical whitespace from the top margin to the start of the text on chapter pages
 
-\begin{appendices}
+% \begin{appendices}
 
-\renewcommand{\chaptername}{Appendix} % Change the chapter name to Appendix, i.e. "Appendix A: Title", instead of "Chapter A: Title" in the headers
+% \renewcommand{\chaptername}{Appendix} % Change the chapter name to Appendix, i.e. "Appendix A: Title", instead of "Chapter A: Title" in the headers
 
-%------------------------------------------------
+% %------------------------------------------------
 
-\chapter{Appendix Chapter Title}
+% \chapter{Appendix Chapter Title}
 
-\section{Appendix Section Title}
+% \section{Appendix Section Title}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor mi risus, quis tempor libero hendrerit at. Duis hendrerit placerat quam et semper. Nam ultricies metus vehicula arcu viverra, vel ullamcorper justo elementum. Pellentesque vel mi ac lectus cursus posuere et nec ex. Fusce quis mauris egestas lacus commodo venenatis. Ut at arcu lectus. Donec et urna nunc. Morbi eu nisl cursus sapien eleifend tincidunt quis quis est. Donec ut orci ex. Praesent ligula enim, ullamcorper non lorem a, ultrices volutpat dolor. Nullam at imperdiet urna. Pellentesque nec velit eget est euismod pretium.
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor mi risus, quis tempor libero hendrerit at. Duis hendrerit placerat quam et semper. Nam ultricies metus vehicula arcu viverra, vel ullamcorper justo elementum. Pellentesque vel mi ac lectus cursus posuere et nec ex. Fusce quis mauris egestas lacus commodo venenatis. Ut at arcu lectus. Donec et urna nunc. Morbi eu nisl cursus sapien eleifend tincidunt quis quis est. Donec ut orci ex. Praesent ligula enim, ullamcorper non lorem a, ultrices volutpat dolor. Nullam at imperdiet urna. Pellentesque nec velit eget est euismod pretium.
 
-%------------------------------------------------
+% %------------------------------------------------
 
-\chapter{Appendix Chapter Title}
+% \chapter{Appendix Chapter Title}
 
-\section{Appendix Section Title}
+% \section{Appendix Section Title}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor mi risus, quis tempor libero hendrerit at. Duis hendrerit placerat quam et semper. Nam ultricies metus vehicula arcu viverra, vel ullamcorper justo elementum. Pellentesque vel mi ac lectus cursus posuere et nec ex. Fusce quis mauris egestas lacus commodo venenatis. Ut at arcu lectus. Donec et urna nunc. Morbi eu nisl cursus sapien eleifend tincidunt quis quis est. Donec ut orci ex. Praesent ligula enim, ullamcorper non lorem a, ultrices volutpat dolor. Nullam at imperdiet urna. Pellentesque nec velit eget est euismod pretium.
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor mi risus, quis tempor libero hendrerit at. Duis hendrerit placerat quam et semper. Nam ultricies metus vehicula arcu viverra, vel ullamcorper justo elementum. Pellentesque vel mi ac lectus cursus posuere et nec ex. Fusce quis mauris egestas lacus commodo venenatis. Ut at arcu lectus. Donec et urna nunc. Morbi eu nisl cursus sapien eleifend tincidunt quis quis est. Donec ut orci ex. Praesent ligula enim, ullamcorper non lorem a, ultrices volutpat dolor. Nullam at imperdiet urna. Pellentesque nec velit eget est euismod pretium.
 
-%------------------------------------------------
+% %------------------------------------------------
 
-\end{appendices}
+% \end{appendices}
 
 %----------------------------------------------------------------------------------------
 

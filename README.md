@@ -15,7 +15,18 @@
     1. Copy the `correct_latex.py` into the folder containing the Latex files : `cp correct_latex.py _build/exports/nameOfTheFile_tex/` ;
     1. Go into the folder containing the Latex files : `cd _build/exports/nameOfTheFile_pdf_tex/` ;
     1. Run the python file : `python3 correct_latex.py` ;
-    1. Generate the pdf via Latex : `pdflatex nameOfTheFile.tex`.
+    1. Run the python file `correct_latex_regu.py` to correct the latex file **for the RegulationBook** : `python3 correct_latex_regu.py` ;
+    1. Generate the pdf via Latex : `pdflatex nameOfTheFile.tex` ;
+
+        **NOTE :** To generate the pdf without being stopped : `pdflatex -interaction=nonstopmode nameOfTheFile.tex`
+        
+    1. Generate the glossary : `makeglossaries main` ;
+    1. (Generate the pdf via Latex : `pdflatex nameOfTheFile.tex`.)
+
+        **NOTE :** To generate the pdf without being stopped : `pdflatex -interaction=nonstopmode nameOfTheFile.tex`
+
+    1. Generate the bibliography : `biber main` ;
+    1. Generate **2X** the pdf via Latex : `pdflatex nameOfTheFile.tex`.
 
         **NOTE :** To generate the pdf without being stopped : `pdflatex -interaction=nonstopmode nameOfTheFile.tex`
 
@@ -63,11 +74,13 @@
     \end{figure}
     ```
 
-- [ ] L'intégration d'une image dans un avertissement (admonition) ne fonctionne pas (Exemple : Seance5.2.1)
+- [x] L'intégration d'une image dans un avertissement (admonition) ne fonctionne pas (Exemple : Seance5.2.1)
+
+- [x] L'intégration d'une image dans une note de bas de page ne fonctionne pas (Exemple : Seance3.4)
 
 - [ ] Problème de renvoi vers la figure 4 de la séance 3, section : Stabilité d’un système dans le domaine fréquentiel 
     
-    -> Provient du fait d'avoir une figure dans la note de bas de page, ce qui ne marche pas...
+    -> Provient du fait d'avoir une figure dans la grille qui n'est pas convertie, ce qui ne marche pas...
 
 - [x] Mettre une image pour marquer la présence d'une vidéo avec le lien hypertexte permmettant d'y aller.
 
@@ -85,4 +98,18 @@
 
 - [x] Corriger les références en se basant sur le pdf généré de base (ex: Séance2->Fig2)
 
-- [ ] Insérer le glossaire, acronymes et structure des includes générés dans le fichier `index.tex` pour le mettre dans le `main.tex`
+- [ ] Insérer le glossaire et acronymes générés dans le fichier `index.tex` pour le mettre dans le `main.tex`
+    -> Glossaire : le fichier tex généré ne signale pas les termes repris dans le fichier Markdown...
+        {term}`Consigne` -> \Gls{Consigne} ou \gls{Consigne} si minuscule => plsrs formats différents de sorties => analiser la première lettre pour afficher correctement.
+
+- [ ] Insérer les includes générés dans le fichier `index.tex` pour le mettre dans le `main.tex`
+
+- [ ] Améliorer l'affichage de ligne de code (ex : Séance6.4)
+
+- [ ] Note de bas de page dans une légende ne s'affichent pas (ex: Séance2.2)
+
+- [ ] Corriger le renvoi vers un chapitre (ex : Séance 7 vers le Solutionnaire)
+    - Ajouter l'instruction `\label{Solutionnaire}` au niveau du titre ;
+    - Utiliser l'instruction `\nameref{Solutionnaire}` lors du renvoi au lieu de `\href{/solutions-exercices}{Solutionnaire}`.
+
+- [ ] (Retirer les référence math inutiles (ex: Séance6.3 : Flèches))
