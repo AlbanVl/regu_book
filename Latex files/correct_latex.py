@@ -37,6 +37,40 @@ def make_glossary():
     with open('main.tex', 'w') as file:
         file.write(content)
 
+def correct_footnotes_in_captions(text: str) -> str:
+    # Pattern to match each figure environment
+    figure_pattern = re.compile(
+        r'(\\begin\{figure\}.*?\\end\{figure\})',
+        re.DOTALL
+    )
+    
+    # Pattern to find and replace footnote within the caption of a figure
+    footnote_pattern = re.compile(
+        r'(\\caption\[\](?P<caption_content>.*?))\\footnote\{(?P<footnote_content>.*?)\}(?P<post_caption>.*?)(?=\\end\{figure\})',
+        re.DOTALL
+    )
+
+    # Function to replace footnote within the caption
+    def replace_footnote(match):
+        caption_content = match.group('caption_content')
+        footnote_content = match.group('footnote_content')
+        post_caption = match.group('post_caption')
+        end_figure = '\\end{figure}'
+        # Construct the modified caption and footnotetext
+        modified_caption = f'\\caption[]{caption_content}\\footnotemark{post_caption}{end_figure}\n\n\\footnotetext{{{footnote_content}}}'
+        return modified_caption
+
+    # Function to process each figure environment
+    def process_figure(match):
+        figure_content = match.group(0)
+        # Replace footnote within this figure
+        modified_figure = re.sub(footnote_pattern, replace_footnote, figure_content)
+        return modified_figure
+
+    # Apply the replacement to each figure environment
+    modified_text = re.sub(figure_pattern, process_figure, text)
+    return modified_text
+
 def correct_admonitions_images(text: str) -> str:
 
     # Define the patterns for the admonitions
@@ -164,6 +198,8 @@ def correct_tex_file(file_path):
     content = correct_admonitions_images(content)
     # Correct the footnotes images in the given file
     content = correct_footnotes_images(content)
+    # Correct the footnotes in the captions in the given file
+    content = correct_footnotes_in_captions(content)
     # Correct the subfigures in the given file
     content = correct_subfigures(content)
     # Correct the videos in the given file
@@ -192,5 +228,4 @@ def correct_bib_file():
 if __name__ == '__main__':
     correct_all_tex_files()
     correct_bib_file()
-    make_glossary()
-    extract_data()
+    # make_glossary() TODO: Finish the implementation of the glossary

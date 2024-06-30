@@ -11,7 +11,7 @@
 1. Install the **full** version of Latex : https://www.tug.org/texlive/quickinstall.html ;
 1. Generate the pdf via Latex files :
     1. Open a terminal in the main folder ;
-    1. `myst build --tex nameOfTheFile.tex` ;
+    1. `myst build --tex nameOfTheFile.md` ;
     1. Copy the `correct_latex.py` into the folder containing the Latex files : `cp correct_latex.py _build/exports/nameOfTheFile_tex/` ;
     1. Go into the folder containing the Latex files : `cd _build/exports/nameOfTheFile_pdf_tex/` ;
     1. Run the python file : `python3 correct_latex.py` ;
@@ -21,10 +21,6 @@
         **NOTE :** To generate the pdf without being stopped : `pdflatex -interaction=nonstopmode nameOfTheFile.tex`
         
     1. Generate the glossary : `makeglossaries main` ;
-    1. (Generate the pdf via Latex : `pdflatex nameOfTheFile.tex`.)
-
-        **NOTE :** To generate the pdf without being stopped : `pdflatex -interaction=nonstopmode nameOfTheFile.tex`
-
     1. Generate the bibliography : `biber main` ;
     1. Generate **2X** the pdf via Latex : `pdflatex nameOfTheFile.tex`.
 
@@ -84,6 +80,10 @@
 
 - [x] Mettre une image pour marquer la présence d'une vidéo avec le lien hypertexte permmettant d'y aller.
 
+- [ ] Corriger le renvoi vers un chapitre (ex : Séance 7 vers le Solutionnaire)
+    - Ajouter l'instruction `\label{Solutionnaire}` au niveau du titre ;
+    - Utiliser l'instruction `\nameref{Solutionnaire}` lors du renvoi au lieu de `\href{/solutions-exercices}{Solutionnaire}`.
+
 - [ ] Gérer le problème d'affichage des noms des Parts trop longs.
 
     -> Regarder au niveau du package `avant` dans la partie `FONTS` du fichier Legrand...cls
@@ -101,15 +101,15 @@
 - [ ] Insérer le glossaire et acronymes générés dans le fichier `index.tex` pour le mettre dans le `main.tex`
     -> Glossaire : le fichier tex généré ne signale pas les termes repris dans le fichier Markdown...
         {term}`Consigne` -> \Gls{Consigne} ou \gls{Consigne} si minuscule => plsrs formats différents de sorties => analiser la première lettre pour afficher correctement.
+        
+- [ ] **Glossaire** : Il y a un problème dans les n° de page où se trouvent les mots : 1 page trop tôt.
 
-- [ ] Insérer les includes générés dans le fichier `index.tex` pour le mettre dans le `main.tex`
+- [ ] Insérer les `includes` générés dans le fichier `index.tex` pour le mettre dans le `main.tex`
 
 - [ ] Améliorer l'affichage de ligne de code (ex : Séance6.4)
+    -> cf. https://github.com/princefishthrower/dev-book-template/tree/main
 
-- [ ] Note de bas de page dans une légende ne s'affichent pas (ex: Séance2.2)
-
-- [ ] Corriger le renvoi vers un chapitre (ex : Séance 7 vers le Solutionnaire)
-    - Ajouter l'instruction `\label{Solutionnaire}` au niveau du titre ;
-    - Utiliser l'instruction `\nameref{Solutionnaire}` lors du renvoi au lieu de `\href{/solutions-exercices}{Solutionnaire}`.
+- [x] Note de bas de page dans une légende ne s'affichent pas (ex: Séance2.2)
+    -> Utiliser les fonctions \footnotemark{} et \footnotetext{} comme expliqué ici : https://chenyuzuoo.github.io/posts/25922/
 
 - [ ] (Retirer les référence math inutiles (ex: Séance6.3 : Flèches))
