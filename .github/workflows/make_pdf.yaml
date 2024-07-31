@@ -1,83 +1,85 @@
 name: Build and Generate PDF
 
 on:
-push:
-  branches: [main]
-pull_request:
-  branches: [main]
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-setup:
-  runs-on: ubuntu-latest
+  setup:
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.9'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
 
-    - name: Install MyST
-      run: pip install myst-parser
+      - name: Install MyST
+        run: pip install myst-parser
 
-    - name: Install Inkscape
-      run: |
-        sudo add-apt-repository ppa:inkscape.dev/stable
-        sudo apt update
-        sudo apt-get install inkscape=1:1.3.2+202311252150+091e20ef0f~ubuntu22.04.1
+      - name: Install Inkscape
+        run: |
+          sudo add-apt-repository ppa:inkscape.dev/stable
+          sudo apt update
+          sudo apt-get install inkscape=1:1.3.2+202311252150+091e20ef0f~ubuntu22.04.1
 
-generate-pdf:
-  needs: setup
-  runs-on: ubuntu-latest
+  generate-pdf:
+    needs: setup
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Install LaTeX
-      run: sudo apt-get install -y texlive-full
+      - name: Install LaTeX
+        run: sudo apt-get install -y texlive-full
 
-    - name: Generate LaTeX from Markdown
-      run: myst build --tex nameOfTheFile.md
+      - name: Generate LaTeX from Markdown
+        run: myst build --tex index.md
 
-    - name: Copy correct_latex.py
-      run: cp correct_latex.py _build/exports/nameOfTheFile_tex/
+      - name: Copy correct_latex.py
+        run: cp correct_latex.py _build/exports/index_tex/
 
-    - name: Copy correct_latex_regu.py
-      run: cp correct_latex_regu.py _build/exports/nameOfTheFile_tex/
+      - name: Copy correct_latex_regu.py
+        run: cp correct_latex_regu.py _build/exports/index_tex/
 
-    - name: Run correct_latex.py
-      working-directory: _build/exports/nameOfTheFile_tex/
-      run: python3 correct_latex.py
+      - name: Run correct_latex.py
+        working-directory: _build/exports/index_tex/
+        run: python3 correct_latex.py
 
-    - name: Run correct_latex_regu.py
-      working-directory: _build/exports/nameOfTheFile_tex/
-      run: python3 correct_latex_regu.py
+      - name: Run correct_latex_regu.py
+        working-directory: _build/exports/index_tex/
+        run: python3 correct_latex_regu.py
 
-    - name: Generate PDF
-      working-directory: _build/exports/nameOfTheFile_tex/
-      run: pdflatex -interaction=nonstopmode nameOfTheFile.tex
+      - name: Generate PDF
+        working-directory: _build/exports/index_tex/
+        run: pdflatex -interaction=nonstopmode index.tex
 
-    - name: Generate Glossary
-      working-directory: _build/exports/nameOfTheFile_tex/
-      run: makeglossaries nameOfTheFile
+      - name: Generate Glossary
+        working-directory: _build/exports/index_tex/
+        run: makeglossaries index
 
-    - name: Generate Bibliography
-      working-directory: _build/exports/nameOfTheFile_tex/
-      run: biber nameOfTheFile
+      - name: Generate Bibliography
+        working-directory: _build/exports/index_tex/
+        run: biber index
 
-    - name: Generate PDF (2nd pass)
-      working-directory: _build/exports/nameOfTheFile_tex/
-      run: pdflatex -interaction=nonstopmode nameOfTheFile.tex
+      - name: Generate PDF (2nd pass)
+        working-directory: _build/exports/index_tex/
+        run: pdflatex -interaction=nonstopmode index.tex
 
-    - name: Generate PDF (3rd pass)
-      working-directory: _build/exports/nameOfTheFile_tex/
-      run: pdflatex -interaction=nonstopmode nameOfTheFile.tex
+      - name: Generate PDF (3rd pass)
+        working-directory: _build/exports/index_tex/
+        run: pdflatex -interaction=nonstopmode index.tex
 
-    - name: Upload PDF
-      uses: actions/upload-artifact@v3
-      with:
-        name: generated-pdf
-        path: _build/exports/nameOfTheFile_tex/nameOfTheFile.pdf
+      - name: Upload PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: generated-pdf
+          path: _build/exports/index_tex/index.pdf
